@@ -102,8 +102,8 @@
         exposure="1.6" environment-intensity="1.8"
         autoplay
         interaction-prompt="none"
-        camera-orbit="180deg 75deg 120%" 
-        camera-target="0m 0.30m 0m"
+        camera-orbit="180deg 75deg 80%" 
+        camera-target="0m 0.45m 0m"
         min-camera-orbit="auto auto 40%" 
         max-camera-orbit="auto auto 600%"
         loading="eager">
@@ -113,10 +113,11 @@
         const getEl = (id) => document.getElementById(id);
         const mv = getEl('clock-model');
 
-        // Reset widoku
+        // Reset wymuszający pełne wycentrowanie i skalę
         getEl('reset-view').onclick = () => {
-            mv.cameraOrbit = "180deg 75deg 120%";
-            mv.cameraTarget = "0m 0.30m 0m";
+            mv.cameraOrbit = "180deg 75deg 80%";
+            mv.cameraTarget = "0m 0.45m 0m";
+            mv.fieldOfView = "auto";
         };
 
         // Panele boczne
@@ -149,7 +150,7 @@
             }
         };
 
-        // AR / Fullscreen
+        // AR / Fullscreen logic
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
             getEl('ar-label').style.display = 'flex';
